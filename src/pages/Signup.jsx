@@ -66,6 +66,9 @@ function Signup() {
                 <select name="" id="" className="select-control">
                   <option value="Pilih Posisi">Pilih Posisi</option>
                   <option value="Peyandang Disabilitas LSM">
+                    Non-Disabilitas
+                  </option>
+                  <option value="Peyandang Disabilitas LSM">
                     Peyandang Disabilitas LSM
                   </option>
                   <option value="Peyandang Disabilitas NON-LSM">

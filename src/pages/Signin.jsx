@@ -51,7 +51,7 @@ function Signin() {
                 </Link>
               </div>
               <button type="submit" className="btn-submit">
-                Create Account
+                Login
               </button>
             </form>
             <p className="text-center">
