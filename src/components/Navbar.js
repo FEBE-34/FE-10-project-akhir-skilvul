@@ -19,8 +19,8 @@ function Navbar() {
         <Link to={"/home"}>
           <li>Home</li>
         </Link>
-        <Link to={"/AboutPage"}>
-          <li>About</li>
+        <Link to={"/program"}>
+          <li>Program</li>
         </Link>
         <Link to={"/SkillPage"}>
           <li>Skill</li>

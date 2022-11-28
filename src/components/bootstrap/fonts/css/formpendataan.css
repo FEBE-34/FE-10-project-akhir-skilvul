@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+form {
+  padding: 0 5vw;
+  padding-bottom: 10vh;
+}
+form h2 {
+  display: flex;
+  justify-content: center;
+  padding: 5vh 0;
+}
+.mb-3 {
+  padding: 1vh 0;
+}
+form button {
+  margin-top: 5vh;
+}
