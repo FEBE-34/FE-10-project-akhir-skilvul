@@ -1,13 +1,13 @@
 import React from 'react'
 import HeroImgProgram from '../components/HeroImgProgram'
-// import Program from '../components/Program'
+import Program from '../components/Program'
 
 
 function ProgramPage() {
   return (
     <div>
         <HeroImgProgram />
-        {/* <Program /> */}
+        <Program />
     </div>
   )
 }

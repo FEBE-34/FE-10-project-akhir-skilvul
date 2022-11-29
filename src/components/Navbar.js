@@ -22,11 +22,11 @@ function Navbar() {
         <Link to={"/program"}>
           <li>Program</li>
         </Link>
-        <Link to={"/SkillPage"}>
-          <li>Skill</li>
+        <Link to={"/kegiatan"}>
+          <li>Kegiatan</li>
         </Link>
-        <Link to={"/BlogPage"}>
-          <li>Blog</li>
+        <Link to={"/Profile"}>
+          <li>Profile</li>
         </Link>
       </ul>
       <button className="mobile-menu-icon" onClick={() => setMobile(!Mobile)}>

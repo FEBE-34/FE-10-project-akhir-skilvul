@@ -47,7 +47,7 @@ const HeroImg = () => {
             </p>
             </div>
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <img className="img-circle" src={p3} width="200px" />
+            <img className="img-circle" src={p2} width="200px" />
             <h3>Bantuan Uang</h3>
             <p className="text-center">
                 <strong>Dis-Help</strong> Memiliki program donasi berupa Uang untuk

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
 import Home from "./pages/HomePage";
 import ProgramPage from "./pages/ProgramPage";
+import KegiatanPage from "./pages/KegiatanPage";
 import ProgramDetail from "./pages/ProgramDetail";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Route path="/" element={<LandingPage />} />
     <Route path="/home" element={<Home />} />
     <Route path="/program" element={<ProgramPage />} />
+    <Route path="/kegiatan" element={<KegiatanPage />} />
     <Route path="/programdetail" element={<ProgramDetail/>}></Route>
       
     </Routes>

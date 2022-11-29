@@ -1,12 +1,13 @@
-import "../assets/css/ProgramFavorite.css"
+import "../assets/css/ProgramCard.css"
+
 
 import React from 'react'
 
 import { NavLink } from "react-router-dom"
 
-const ProgramFavoriteCard = (props) => {
+const ProgramCard = (props) => {
   return (
-    <div className="program-favorite-container">
+    <div className="program-card-container">
         
       
             <div className="program-card">
@@ -15,7 +16,7 @@ const ProgramFavoriteCard = (props) => {
                 <div className="pro-details">
                     <p>{props.text}</p>
                     <div className="pro-btns">
-                        <NavLink to={props.view} className="btn">View</NavLink>
+                        <NavLink to={props.view} className="btn">Daftar</NavLink>
                         
                     </div>
                     
@@ -27,8 +28,7 @@ const ProgramFavoriteCard = (props) => {
             
   
         </div>
- 
   )
 }
 
-export default ProgramFavoriteCard
+export default ProgramCard

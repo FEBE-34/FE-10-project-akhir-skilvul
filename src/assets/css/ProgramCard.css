@@ -38,7 +38,7 @@
     .program-container{
         max-width: 50%;
         margin: auto;
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr;
     }
     
 }
