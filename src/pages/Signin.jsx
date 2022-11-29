@@ -1,11 +1,44 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import axios from "axios";
 import logo from "../assets/img/logo.png";
 import "../assets/css/Sign.css";
 
 function Signin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  const url =
+    "https://grup-project-be-34-production.up.railway.app/user/login/";
+
+  const changeEmail = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+  };
+
+  const changePassword = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+  };
+
+  const loginbtn = (e) => {
+    e.preventDefault();
+    const data = {
+      email: email,
+      password: password,
+    };
+    axios.post(url, data).then((result) => {
+      if (result) {
+        localStorage.setItem("token", result.data.token);
+        setRedirect(true);
+      }
+    });
+  };
+
   return (
     <React.Fragment>
+      {redirect && <Navigate to="/home" />}
       <div className="wrapper">
         <div className="auth-box">
           <div className="auth-header">
@@ -26,6 +59,8 @@ function Signin() {
                   className="input-control"
                   name="email"
                   id="email"
+                  value={email}
+                  onChange={changeEmail}
                   placeholder="contoh@gmail.com"
                   autoComplete="off"
                   required
@@ -40,6 +75,8 @@ function Signin() {
                   className="input-control"
                   name="password"
                   id="password"
+                  value={password}
+                  onChange={changePassword}
                   placeholder="Password"
                   autoComplete="off"
                   required
@@ -50,7 +87,7 @@ function Signin() {
                   Forgot Password ?
                 </Link>
               </div>
-              <button type="submit" className="btn-submit">
+              <button type="submit" className="btn-submit" onClick={loginbtn}>
                 Login
               </button>
             </form>

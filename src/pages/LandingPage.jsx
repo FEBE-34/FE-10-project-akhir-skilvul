@@ -8,7 +8,7 @@ function LandingPage() {
     <div>
       <div className="row">
         <div className="konten1">
-          <img src={logo} alt="banner" width="500px" />
+          <img src={logo} alt="banner" width="300px" />
         </div>
         <div className="konten2">
           <h1>Dis-Help</h1>

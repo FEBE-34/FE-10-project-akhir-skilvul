@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import forgotpassword from "../assets/img/forgot-password.png";
 import "../assets/css/Sign.css";
+import axios from "axios";
 
 function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [alert, setAlert] = useState("");
+
+  const url =
+    "https://grup-project-be-34-production.up.railway.app/user/forgotpassword";
+
+  const changeEmail = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setError("");
+  };
+
+  const kirim = (e) => {
+    e.preventDefault();
+    if (!email) {
+      setError("Email Harus Diisi");
+    } else {
+      axios
+        .get(url, {
+          email: email
+        })
+        .then(res => {
+          setEmail('')
+          setAlert('Silahakn Cek Email Anda')
+          setTimeout(() => {
+            setAlert('')
+          }, 3000)
+        });
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="wrapper">
@@ -21,6 +54,16 @@ function ForgotPassword() {
           </div>
           <div className="auth-body">
             <form action="" className="auth-form-validation">
+              {alert && (
+                <div className="alert alert-danger">
+                  <p>{alert}</p>
+                </div>
+              )}
+              {error && (
+                <div className="alert alert-danger">
+                  <p>{error}</p>
+                </div>
+              )}
               <div className="input-field">
                 <label htmlFor="" className="input-label">
                   Email Address
@@ -30,12 +73,14 @@ function ForgotPassword() {
                   className="input-control"
                   name="email"
                   id="email"
+                  value={email}
+                  onChange={changeEmail}
                   placeholder="contoh@gmail.com"
                   autoComplete="off"
                   required
                 />
               </div>
-              <button type="submit" className="btn-submit">
+              <button type="submit" className="btn-submit" onClick={kirim}>
                 Kirim
               </button>
               <Link to={"/signin"} className="btn-back-to-login">

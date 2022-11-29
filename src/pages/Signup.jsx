@@ -1,9 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import logo from "../assets/img/logo.png";
 import "../assets/css/Sign.css";
 
 function Signup() {
+  const [nama, setNama] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [posisi, setPosisi] = useState("");
+  const [alert, setAlert] = useState("");
+  const url =
+    "https://grup-project-be-34-production.up.railway.app/user/signup/";
+  // http://localhost:5000/user/signup/
+  // https://grup-project-be-34-production.up.railway.app/user/signup/
+  // https://637907f87419b414df88cddd.mockapi.io/user
+
+  const changeNama = (e) => {
+    const value = e.target.value;
+    setNama(value);
+  };
+
+  const changeEmail = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+  };
+
+  const changePassword = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+  };
+
+  const changePosisi = (e) => {
+    const value = e.target.value;
+    setPosisi(value);
+  };
+
+  const klikDaftar = (e) => {
+    e.preventDefault();
+    const data = {
+      nama: nama,
+      email: email,
+      password: password,
+      posisi: posisi,
+    };
+    axios.post(url, data).then((result) => {
+      if (result) {
+        if (result.data) {
+          console.log(result.data);
+          setNama("");
+          setEmail("");
+          setPassword("");
+          setPosisi("");
+          setAlert("Data Berhasil diSimpan");
+          setTimeout(() => {
+            setAlert("");
+          }, 3000);
+        }
+      }
+    });
+  };
+
   return (
     <React.Fragment>
       <div className="wrapper">
@@ -17,6 +74,11 @@ function Signup() {
           </div>
           <div className="auth-body">
             <form action="" className="auth-form-validation">
+              {alert && (
+                <div className="alert alert-primary">
+                  <p>{alert}</p>
+                </div>
+              )}
               <div className="input-field">
                 <label htmlFor="" className="input-label">
                   Nama Lengkap
@@ -26,6 +88,8 @@ function Signup() {
                   className="input-control"
                   name="nama"
                   id="nama"
+                  value={nama}
+                  onChange={changeNama}
                   placeholder="Muhammad Sadewo Wicaksono"
                   autoComplete="off"
                   required
@@ -40,6 +104,8 @@ function Signup() {
                   className="input-control"
                   name="email"
                   id="email"
+                  value={email}
+                  onChange={changeEmail}
                   placeholder="contoh@gmail.com"
                   autoComplete="off"
                   required
@@ -54,6 +120,8 @@ function Signup() {
                   className="input-control"
                   name="password"
                   id="password"
+                  value={password}
+                  onChange={changePassword}
                   placeholder="Password"
                   autoComplete="off"
                   required
@@ -63,20 +131,24 @@ function Signup() {
                 <label htmlFor="" className="input-label">
                   Posisi
                 </label>
-                <select name="" id="" className="select-control">
-                  <option value="Pilih Posisi">Pilih Posisi</option>
-                  <option value="Peyandang Disabilitas LSM">
-                    Non-Disabilitas
-                  </option>
-                  <option value="Peyandang Disabilitas LSM">
+                <select
+                  name="posisi"
+                  id="posisi"
+                  className="select-control"
+                  value={posisi}
+                  onChange={changePosisi}
+                >
+                  <option value="pilih Posisi">Pilih Posisi</option>
+                  <option value="non-disabilitas">Non-Disabilitas</option>
+                  <option value="peyandang disabilitas lsm">
                     Peyandang Disabilitas LSM
                   </option>
-                  <option value="Peyandang Disabilitas NON-LSM">
+                  <option value="peyandang disabilitas non-lsm">
                     Peyandang Disabilitas NON-LSM
                   </option>
                 </select>
               </div>
-              <button type="submit" className="btn-submit">
+              <button type="submit" className="btn-submit" onClick={klikDaftar}>
                 Buat Akun
               </button>
             </form>

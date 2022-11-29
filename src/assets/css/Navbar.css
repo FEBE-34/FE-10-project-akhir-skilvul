@@ -9,10 +9,9 @@ li {
   justify-content: space-around;
   align-items: center;
   height: 10vh;
-  box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
 }
 .logo {
-  width: 50px;
+  width: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,21 +29,14 @@ li {
   cursor: pointer;
   text-transform: capitalize;
 }
-li:hover {
-  color: white;
-  background: black;
-  transition: 0.3s all linear;
-}
 .mobile-menu-icon {
   display: none;
-}
-button {
   border: none;
   text-decoration: none;
   font-size: 20px;
   background: none;
 }
-@media (max-width: 540px) {
+@media (max-width: 768px) {
   .logo {
     display: flex;
     position: absolute;
@@ -58,14 +50,12 @@ button {
     position: absolute;
     display: block;
     list-style: none;
-    box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     left: 0;
     top: 10%;
     transition: all 0.5s ease-in-out;
     width: 100%;
     background: white;
-    z-index: 999;
+    z-index: 99;
   }
   li {
     color: black;
@@ -79,7 +69,7 @@ button {
   .mobile-menu-icon {
     position: absolute;
     display: block;
-    right: 30px;
-    padding-right: 15px;
+    right: 20px;
+    z-index: 100;
   }
 }

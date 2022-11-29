@@ -19,14 +19,8 @@ function Navbar() {
         <Link to={"/"}>
           <li>Home</li>
         </Link>
-        <Link to={"/AboutPage"}>
-          <li>About</li>
-        </Link>
-        <Link to={"/SkillPage"}>
-          <li>Skill</li>
-        </Link>
-        <Link to={"/BlogPage"}>
-          <li>Blog</li>
+        <Link to={"/profile"}>
+          <li>Profile</li>
         </Link>
       </ul>
       <button className="mobile-menu-icon" onClick={() => setMobile(!Mobile)}>
