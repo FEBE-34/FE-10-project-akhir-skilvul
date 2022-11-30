@@ -15,9 +15,10 @@ const ProgramFavorite = () => {
                 return(
                     <ProgramFavoriteCard
                     key={ind}
+                    id={val.id}
                     imgsrc={val.imgsrc}
                     title={val.title}
-                    text={val.text}
+                    text={val.text} 
                     view={val.view}
                     />
                 )
