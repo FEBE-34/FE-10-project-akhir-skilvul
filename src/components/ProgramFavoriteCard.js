@@ -1,6 +1,5 @@
 import "../assets/css/ProgramFavorite.css"
-
-import React from 'react'
+// import React, { useEffect } from 'react'
 
 import { NavLink, useNavigate } from "react-router-dom"
 
@@ -10,6 +9,14 @@ const ProgramFavoriteCard = (props) => {
     navigation(`/programdetail/${id}`)
 
   }
+  // const URL = "https://grup-project-be-34-production.up.railway.app/homepenyandang/lihat/";
+
+
+  // useEffect(() => {
+  //   axios.get(URL).then(res => {
+  //     console.log(res)
+  //   })
+  // })
   return (
     <div className="program-favorite-container">
         
