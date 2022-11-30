@@ -3,7 +3,7 @@ import React from 'react'
 import Intro from "../assets/img/gambar1.PNG"
 import p1 from "../assets/img/gambar1.jpg"
 import p2 from "../assets/img/gambar2.jpg"
-import p3 from "../assets/img/gambar3.png"
+// import p3 from "../assets/img/gambar3.png"
 import { Link } from "react-router-dom";
 
 const HeroImg = () => {
