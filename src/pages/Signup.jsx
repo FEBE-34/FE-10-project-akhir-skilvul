@@ -139,11 +139,10 @@ function Signup() {
                   onChange={changePosisi}
                 >
                   <option value="pilih Posisi">Pilih Posisi</option>
-                  <option value="non-disabilitas">Non-Disabilitas</option>
-                  <option value="peyandang disabilitas lsm">
+                  <option value="penyandang disabilitas lsm">
                     Peyandang Disabilitas LSM
                   </option>
-                  <option value="peyandang disabilitas non-lsm">
+                  <option value="penyandang disabilitas no-lsm">
                     Peyandang Disabilitas NON-LSM
                   </option>
                 </select>

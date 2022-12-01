@@ -9,7 +9,7 @@ function Navbar() {
   const [Mobile, setMobile] = useState(false);
   return (
     <nav className="navbar">
-      <Link to={"/"}>
+      <Link to={"/home"}>
         <img src={logo} className="logo" />
       </Link>
       <ul
@@ -19,7 +19,13 @@ function Navbar() {
         <Link to={"/home"}>
           <li>Home</li>
         </Link>
-        <Link to={"/profile"}>
+        <Link to={"/program"}>
+          <li>Program</li>
+        </Link>
+        <Link to={"/kegiatan"}>
+          <li>Kegiatan</li>
+        </Link>
+        <Link to={"/Profile"}>
           <li>Profile</li>
         </Link>
       </ul>
