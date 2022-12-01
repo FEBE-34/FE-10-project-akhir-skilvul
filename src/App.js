@@ -4,7 +4,8 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
 import Home from "./pages/HomePage";
 import ProgramPage from "./pages/ProgramPage";
-import KegiatanPage from "./pages/KegiatanPage";
+// import KegiatanAktif from "./pages/KegiatanAktifPage";
+// import StatusPendaftaran from "./pages/StatusPendaftaranPage";
 import ProgramDetail from "./pages/ProgramDetailPage";
 
 function App() {
@@ -15,9 +16,11 @@ function App() {
     <Route path="/" element={<LandingPage />} />
     <Route path="/home" element={<Home />} />
     <Route path="/program" element={<ProgramPage />} />
-    <Route path="/kegiatan" element={<KegiatanPage />} />
-  
-    <Route path="/programdetail/:id" element={<ProgramDetail />}></Route>
+    <Route path="/programdetail/:id" element={<ProgramDetail />}>
+    {/* <Route path="/kegiatanaktif" element={<KegiatanAktif />} />
+    <Route path="/statuspendaftaran" element={<StatusPendaftaran />} />
+   */}
+  </Route>
       
     </Routes>
     </Router>

@@ -1,10 +1,10 @@
 import React from 'react'
-import Kategori from '../components/Kategori'
+// import Kategori from '../components/w'
 
 function KegiatanPage() {
   return (
     <div>
-        <Kategori/>
+        {/* <Kategori/> */}
     </div>
   )
 }

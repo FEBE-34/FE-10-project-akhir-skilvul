@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import { Link} from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
+
 import { ImCross } from "react-icons/im";
-import { Link } from "react-router-dom";
+
 import logo from "../assets/img/logo.png";
 import "../assets/css/Navbar.css";
 
+
 function Navbar() {
   const [Mobile, setMobile] = useState(false);
+
+ 
   return (
+   
+    
     <nav className="navbar">
       <Link to={"/"}>
         <img src={logo} className="logo" />
@@ -21,10 +28,12 @@ function Navbar() {
         </Link>
         <Link to={"/program"}>
           <li>Program</li>
-        </Link>
+        </Link> 
         <Link to={"/kegiatan"}>
           <li>Kegiatan</li>
-        </Link>
+        </Link>     
+      
+     
         <Link to={"/Profile"}>
           <li>Profile</li>
         </Link>
