@@ -1,75 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "../assets/css/Profile.css";
 import Navbar from "../components/Navbar";
 
 function ProfilePage() {
-  const token = localStorage.getItem("token");
-  console.log(token);
+  const url =
+    "https://grup-project-be-34-production.up.railway.app/profile/allpenyandang";
+  const [data, setData] = useState([]);
+  const [tgl, setTgl] = useState([]);
+  const [gambar, setGambar] = useState([]);
 
-  const url = "https://637907f87419b414df88cddd.mockapi.io/profile";
-  const [data, setData] = useState({
-    nik: "",
-    nama: "",
-    tml: "",
-    tgl: "",
-    jk: "",
-    agama: "",
-    nohp: "",
-    alamat: "",
-    provinsi: "",
-    kota: "",
-    Kecamatan: "",
-    kodepos: "",
-  });
-
-  function submit(e) {
-    e.preventDefault();
+  useEffect(() => {
     axios
-      .post(url, {
-        nik: data.nik,
-        nama: data.nama,
-        tml: data.tml,
-        tgl: data.tgl,
-        jk: data.jk,
-        agama: data.agama,
-        nohp: data.nohp,
-        alamat: data.alamat,
-        provinsi: data.provinsi,
-        kota: data.kota,
-        Kecamatan: data.Kecamatan,
-        kodepos: data.kodepos,
+      .get(url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       })
       .then((res) => {
-        console.log("Data Berhasil disimpan");
-        console.log(res.data);
+        console.log("Ini datanya", res);
+        setData(res.data.data[0]);
+        const tanggal = new Date(res.data.data[0].tanggal_lahir);
+        const hari = new Date(tanggal).getDate();
+        const bulan = new Date(tanggal).getMonth();
+        const tahun = new Date(tanggal).getFullYear();
+        const formattgl = hari + " / " + bulan + " / " + tahun;
+        setTgl(formattgl);
+        setGambar(res.data.data[0].UploadBerka);
       });
-  }
+  }, []);
 
-  function handle(e) {
-    const newdata = { ...data };
-    newdata[e.target.id] = e.target.value;
-    setData(newdata);
-  }
+  const keluar = () => {
+    localStorage.removeItem("token");
+  };
 
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <div>
       <Navbar />
-      <form action="" onSubmit={(e) => submit(e)}>
+      <form>
         <div className="container">
           <div className="row profile">
-            <div className="col-md-3">
+            <div className="col-md-2">
               <div className="profile-sidebar">
                 <div className="profile-userpic">
                   <img
-                    src="https://static.change.org/profile-img/default-user-profile.svg"
+                    src={gambar.file_dokter}
                     className="img-responsive"
                     alt=""
                   />
                 </div>
                 <div className="profile-usertitle">
-                  <div className="profile-usertitle-name">Sadewo</div>
+                  <div className="profile-usertitle-name">{data.nama}</div>
                   <div className="profile-usertitle-job">Sadewo@gmail.com</div>
                 </div>
                 <div className="profile-usermenu">
@@ -83,13 +69,13 @@ function ProfilePage() {
                     <li>
                       <Link to={"/form-data"}>
                         <i className="glyphicon glyphicon-file" />
-                        Input Form Data
+                        Data Pribadi
                       </Link>
                     </li>
                     <li>
                       <Link to={"/kontak-pribadi"}>
                         <i className="glyphicon glyphicon-file" />
-                        Input Form Kontak Pribadi
+                        Kontak Pribadi
                       </Link>
                     </li>
                     <li>
@@ -99,10 +85,10 @@ function ProfilePage() {
                       </Link>
                     </li>
                     <li>
-                      <a href="#">
-                        <i className="glyphicon glyphicon-log-out" />
-                        Logout
-                      </a>
+                      <Link to={"/"} onClick={keluar}>
+                        <i className="glyphicon glyphicon-log-out"></i>
+                        Keluar
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -118,90 +104,49 @@ function ProfilePage() {
                     <label htmlFor="" className="form-label">
                       Nama
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="nama"
-                      value={data.nama}
-                      onChange={(e) => handle(e)}
-                    />
+                    <label htmlFor="" className="form-control">
+                      {data.nama}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       NIK
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="nik"
-                      value={data.nik}
-                      onChange={(e) => handle(e)}
-                    />
+                    <label htmlFor="" className="form-control">
+                      {data.nik}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Tempat Lahir
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="tml"
-                      value={data.tml}
-                      onChange={(e) => handle(e)}
-                    />
+                    <label htmlFor="" className="form-control">
+                      {data.tempat_lahir}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Tanggal Lahir
                     </label>
-                    <input
-                      type="date"
-                      className="form-control"
-                      id="tgl"
-                      value={data.tgl}
-                      onChange={(e) => handle(e)}
-                    />
+                    <label htmlFor="" className="form-control">
+                      {tgl}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Jenis Kelamin
                     </label>
-                    <select
-                      defaultValue={"DEFAULT"}
-                      className="form-select form-select-lg md-6"
-                      aria-label=".form-select-lg example"
-                      id="jk"
-                      value={data.jk}
-                      onChange={(e) => handle(e)}
-                    >
-                      <option value={"DEFAULT"}>Pilih Jenis Kelamin</option>
-                      <option value="Laki-laki">Laki-laki</option>
-                      <option value="Perempuan">Perempuan</option>
-                    </select>
+                    <label htmlFor="" className="form-control">
+                      {data.jenis_kelamin}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Agama
                     </label>
-                    <select
-                      defaultValue={"DEFAULT"}
-                      className="form-select form-select-lg md-6"
-                      aria-label=".form-select-lg example"
-                      id="agama"
-                      name="agama"
-                      value={data.agama}
-                      onChange={(e) => handle(e)}
-                    >
-                      <option value={"DEFAULT"}>Pilih salah satu..</option>
-                      <option value="Islam">Islam</option>
-                      <option value="Kristen Protestan">
-                        Kristen Protestan
-                      </option>
-                      <option value="Kristen Katolik">Kristen Katolik</option>
-                      <option value="Hindu">Hindu</option>
-                      <option value="Buddha">Buddha</option>
-                      <option value="Konghucu">Konghucu</option>
-                    </select>
+                    <label htmlFor="" className="form-control">
+                      {data.agama}
+                    </label>
                   </div>
                 </div>
                 <div class="row g-3">
@@ -212,73 +157,37 @@ function ProfilePage() {
                     <label htmlFor="" className="form-label">
                       No HandPhone
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="nohp"
-                      value={data.nama}
-                      onChange={(e) => handle(e)}
-                    />
+                    <input type="text" className="form-control" disabled />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Alamat
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="alamat"
-                      value={data.nik}
-                      onChange={(e) => handle(e)}
-                    />
+                    <input type="text" className="form-control" disabled />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Provinsi
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="provinsi"
-                      value={data.tml}
-                      onChange={(e) => handle(e)}
-                    />
+                    <input type="text" className="form-control" disabled />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Kota
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="kota"
-                      value={data.tgl}
-                      onChange={(e) => handle(e)}
-                    />
+                    <input type="text" className="form-control" disabled />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Kecamatan
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="kecamatan"
-                      value={data.tgl}
-                      onChange={(e) => handle(e)}
-                    />
+                    <input type="text" className="form-control" disabled />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Kode Pos
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="kodepos"
-                      value={data.tgl}
-                      onChange={(e) => handle(e)}
-                    />
+                    <input type="text" className="form-control" disabled />
                   </div>
                 </div>
               </div>

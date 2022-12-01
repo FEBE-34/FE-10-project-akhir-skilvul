@@ -16,7 +16,7 @@ function Navbar() {
         className={Mobile ? "nav-links-mobile" : "nav-links"}
         onClick={() => setMobile(false)}
       >
-        <Link to={"/"}>
+        <Link to={"/home"}>
           <li>Home</li>
         </Link>
         <Link to={"/profile"}>

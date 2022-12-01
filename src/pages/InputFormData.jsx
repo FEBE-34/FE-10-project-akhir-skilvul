@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import "../assets/css/Profile.css";
-import Navbar from "../components/Navbar";
 
 function InputFormData() {
   const url =
@@ -33,7 +32,7 @@ function InputFormData() {
         },
         {
           headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       )
@@ -49,6 +48,10 @@ function InputFormData() {
     setData(newdata);
   }
 
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <div>
       <form action="" onSubmit={submit}>

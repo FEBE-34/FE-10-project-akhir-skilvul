@@ -1,8 +1,6 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import "../assets/css/Profile.css";
-import Navbar from "../components/Navbar";
 
 function InputKontakPribadi() {
     const url =

@@ -8,7 +8,7 @@ import ProgramFavorite from "../components/ProgramFavorite";
 function HomePage() {
   const token = localStorage.getItem("token");
   if (!token) {
-    return <Navigate to={"/signin"} />;
+    return <Navigate to={"/"} />;
   }
   return (
     <div>
