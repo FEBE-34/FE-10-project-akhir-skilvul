@@ -1,0 +1,44 @@
+.program-heading{
+    text-align: center;
+    padding: 4rem 0 2rem 0;
+}
+.program-container{
+    max-width: 1140px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    padding-bottom: 5rem;
+}
+.program-card{
+    background: #7FBCD2;
+    padding: 1.2rem 1rem;
+}
+.program-card img{
+    width: 100%;
+}
+.program-title{
+    color: #fff;
+    padding: 1rem 0;
+}
+.program-details{
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+    /* text-align: left; */
+}
+.program-btns{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+.program-btns .btn{
+    padding: 0.5rem;
+}
+@media screen and (max-width : 740px){
+    .program-container{
+        max-width: 50%;
+        margin: auto;
+        grid-template-columns: 2fr;
+    }
+    
+}
