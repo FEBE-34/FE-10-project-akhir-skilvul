@@ -20,7 +20,7 @@ function ProfilePage() {
         },
       })
       .then((res) => {
-        console.log("Ini datanya", res.data.DataPenyandang[0].tanggal_lahir);
+        // console.log("Ini datanya", res.data.DataPenyandang[0].tanggal_lahir);
         setDatapenyandang(res.data.DataPenyandang[0]);
         setKontakpribadi(res.data.KontakPribadi[0]);
         const tanggal = new Date(res.data.DataPenyandang[0].tanggal_lahir);

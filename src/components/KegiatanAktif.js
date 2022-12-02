@@ -17,7 +17,7 @@ const KegiatanAktif = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.kegiatan[0]);
+        // console.log(res.data.kegiatan[0]);
         setPogram(res.data.kegiatan[0]);
       });
   }, []);

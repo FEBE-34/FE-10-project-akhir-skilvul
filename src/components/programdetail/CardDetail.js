@@ -26,7 +26,7 @@ const CardDetail = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.kategori[0]);
+        // console.log(res.data.kategori[0]);
         setDatadetail(res.data.kategori[0]);
         const tanggal_mulai = new Date(res.data.kategori[0].tanggal_mulai);
         const hari_mulai = new Date(tanggal_mulai).getDate();

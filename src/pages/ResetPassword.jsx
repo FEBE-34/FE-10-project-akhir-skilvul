@@ -39,7 +39,7 @@ function ResetPassword() {
     };
     axios.put(url, data).then((res) => {
       if (res) {
-        console.log("Data Tersimpan", res);
+        // console.log("Data Tersimpan", res);
         setPassword("");
         setConfirmPassword("");
         setAlert("Password Berhasil diGanti");

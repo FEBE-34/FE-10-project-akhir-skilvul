@@ -44,7 +44,7 @@ function Signup() {
     axios.post(url, data).then((result) => {
       if (result) {
         if (result.data) {
-          console.log(result.data);
+          // console.log(result.data);
           setNama("");
           setEmail("");
           setPassword("");

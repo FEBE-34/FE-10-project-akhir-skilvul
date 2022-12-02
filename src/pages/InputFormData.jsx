@@ -37,8 +37,8 @@ function InputFormData() {
         }
       )
       .then((res) => {
-        console.log("Data Berhasil disimpan");
-        console.log(res.data);
+        // console.log("Data Berhasil disimpan");
+        // console.log(res.data);
       });
   }
 

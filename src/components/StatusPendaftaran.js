@@ -17,7 +17,7 @@ const StatusPendaftaran = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.kegiatan);
+        // console.log(res.data.kegiatan);
         setData(res.data.kegiatan);
       });
   }, []);
