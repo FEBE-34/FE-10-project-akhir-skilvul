@@ -4,6 +4,7 @@ import HeroImg from "../components/HeroImg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
+import "../assets/css/ProgramFavorite.css";
 
 function HomePage() {
   const token = localStorage.getItem("token");
@@ -16,11 +17,11 @@ function HomePage() {
     axios
       .get(url, {
         headers: {
-          "Authorization": `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res);
         setData(res.data.program);
       });
   }, []);
@@ -31,12 +32,12 @@ function HomePage() {
       return (
         <div className="program-favorite-container" key={index}>
           <div className="program-card">
-            <img src="" alt="img" />
+            <img src={data.gambar} alt="img" />
             <h2 className="program-title">{data.nama}</h2>
             <div className="pro-details">
               <p>{data.deskripsi}</p>
               <div className="pro-btns">
-                <Link to={`/programdetail/${data.id}`}>View</Link>
+                <Link to={`/programpenyandang/lihat/${data.id}`}>View</Link>
               </div>
             </div>
           </div>
@@ -51,7 +52,7 @@ function HomePage() {
       <Navbar />
       <HeroImg />
       <div className="program-favorite-container">
-        <h1 className="program-heading">Program Favorite</h1>
+        <h1 className="program-heading">Program</h1>
         <div className="program-container">{arr}</div>
       </div>
       <Footer />

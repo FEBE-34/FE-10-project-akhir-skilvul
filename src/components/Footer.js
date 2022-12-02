@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../assets/css/Footer.css";
 import logo from "../assets/img/logo.png";
 
@@ -7,10 +8,6 @@ function Footer() {
     <footer className="footer-distributed">
       <div className="footer-left">
         <img src={logo} className="footer-logo" />
-        <p className="footer-links">
-          <a href="#">Home</a>|<a href="#">About</a>|<a href="#">Contact</a>|
-          <a href="#">Blog</a>
-        </p>
         <p className="footer-company-name">
           Copyright © 2022 <strong>Dis-Help</strong> All rights reserved
         </p>
@@ -26,9 +23,7 @@ function Footer() {
         </div>
         <div>
           <i className="fa fa-envelope" />
-          <p>
-            <a href="">Dis-Help@gmail.com</a>
-          </p>
+          <p>Dis-Help@gmail.com</p>
         </div>
       </div>
       <div className="footer-right">
@@ -40,21 +35,21 @@ function Footer() {
           Non-Disabilitas.
         </p>
         <div className="footer-icons">
-          <a href="#">
+          <Link>
             <i className="fa fa-facebook" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link>
             <i className="fa fa-instagram" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link>
             <i className="fa fa-linkedin" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link>
             <i className="fa fa-twitter" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link>
             <i className="fa fa-youtube" />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

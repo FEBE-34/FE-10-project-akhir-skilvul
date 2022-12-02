@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -11,8 +16,8 @@ import InputKontakPribadi from "./pages/InputKontakPribadi";
 import UploadBerkas from "./pages/UploadBerkas";
 import ResetPassword from "./pages/ResetPassword";
 import HomePage from "./pages/HomePage";
-import KegiatanAktifPage from "./pages/KegiatanAktifPage";
-import StatusPendaftaranPage from "./pages/StatusPendaftaranPage";
+// import KegiatanAktifPage from "./pages/KegiatanAktifPage";
+// import StatusPendaftaranPage from "./pages/StatusPendaftaranPage";
 
 function App() {
   return (
@@ -27,9 +32,12 @@ function App() {
         <Route path="/kontak-pribadi" element={<InputKontakPribadi />} />
         <Route path="/upload-berkas" element={<UploadBerkas />} />
         <Route path="/program" element={<ProgramPage />} />
-        <Route path="/programdetail/:id" element={<ProgramDetail />}/>
-        <Route path="/kegiatanaktif" element={<KegiatanAktifPage />} />
-        <Route path="/statuspendaftaran" element={<StatusPendaftaranPage />} />
+        <Route
+          path="/programpenyandang/lihat/:id"
+          element={<ProgramDetail />}
+        />
+        {/* <Route path="/kegiatanaktif" element={<KegiatanAktifPage />} />
+        <Route path="/statuspendaftaran" element={<StatusPendaftaranPage />} /> */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
       </Routes>

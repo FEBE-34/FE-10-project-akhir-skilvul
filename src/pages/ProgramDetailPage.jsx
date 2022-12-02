@@ -1,17 +1,18 @@
-import React from 'react'
-import ProgramDetail from '../components/programdetail/ProgramDetail'
-import image from '../assets/img/background.jpg'
+import React from "react";
+import { useParams } from "react-router-dom";
+import image from "../assets/img/background.jpg";
+import CardDetail from "../components/programdetail/CardDetail";
 
-function ProgramDetailPage(){
-    return (
-      <div style={{backgroundImage: `url(${image})`,  padding:"5vh 0"}}>
-        <ProgramDetail/>
-        <div style={{display:"flex", justifyContent:"center"}}>
-          <button className='buttonDaftar'>Daftar Sekarang!</button>
-        </div>
+function ProgramDetailPage() {
+  const token = localStorage.getItem("token");
+  return (
+    <div style={{ backgroundImage: `url(${image})`, padding: "5vh 0" }}>
+      <CardDetail />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <button className="buttonDaftar">Daftar Sekarang!</button>
       </div>
-    // <ProgramDetail/>
-    )
-  }
-  
-  export default ProgramDetailPage
+    </div>
+  );
+}
+
+export default ProgramDetailPage;
