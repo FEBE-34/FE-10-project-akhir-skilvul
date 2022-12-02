@@ -1,10 +1,12 @@
 import "../assets/css/StatusPendaftaran.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const StatusPendaftaran = () => {
+  const token = localStorage.getItem("token");
   const url =
-    "https://grup-project-be-34-production.up.railway.app/kegiatanpenyandang/lihat";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/kegiatanpenyandang/lihat";
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -37,6 +39,9 @@ const StatusPendaftaran = () => {
         </div>
       );
     });
+  if (!token) {
+    return <Navigate to={"/signin"} />;
+  }
   return (
     <div className="status-card-container">
       <h1 className="status-heading">STATUS PENDAFTARAN</h1>

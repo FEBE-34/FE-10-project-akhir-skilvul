@@ -1,12 +1,13 @@
 import "../assets/css/ProgramFavorite.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "../assets/css/ProgramCard.css";
 
 const Program = () => {
+  const token = localStorage.getItem("token");
   const url =
-    "https://grup-project-be-34-production.up.railway.app/programpenyandang/lihat";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/programpenyandang/lihat";
   const [program, setPogram] = useState();
 
   useEffect(() => {
@@ -40,6 +41,10 @@ const Program = () => {
         </div>
       );
     });
+
+  if (!token) {
+    return <Navigate to={"/signin"} />;
+  }
   return (
     <div className="program-card-container">
       <h1 className="program-heading">Program</h1>

@@ -10,7 +10,7 @@ function HomePage() {
   const token = localStorage.getItem("token");
 
   const url =
-    "https://grup-project-be-34-production.up.railway.app/homepenyandang/lihat/";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/homepenyandang/lihat/";
   const [data, setData] = useState();
 
   useEffect(() => {

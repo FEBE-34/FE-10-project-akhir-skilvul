@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../assets/css/ProgramDetail.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import {
   FaPeopleCarry,
   FaUserAlt,
@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 
 const CardDetail = () => {
+  const token = localStorage.getItem("token");
   const param = useParams();
   const url = `https://grup-project-be-34-production.up.railway.app/programpenyandang/lihat/detail/${param.id}`;
   const [datadetail, setDatadetail] = useState({ nama: "" });
@@ -43,6 +44,10 @@ const CardDetail = () => {
         setTglselesai(formtgl_selesai);
       });
   }, []);
+
+  if (!token) {
+    return <Navigate to={"/signin"} />;
+  }
 
   return (
     <>

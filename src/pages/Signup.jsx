@@ -11,10 +11,7 @@ function Signup() {
   const [posisi, setPosisi] = useState("");
   const [alert, setAlert] = useState("");
   const url =
-    "https://grup-project-be-34-production.up.railway.app/user/signup/";
-  // http://localhost:5000/user/signup/
-  // https://grup-project-be-34-production.up.railway.app/user/signup/
-  // https://637907f87419b414df88cddd.mockapi.io/user
+    "https://febe-34-ayo-skilvul-production.up.railway.app/user/signup/";
 
   const changeNama = (e) => {
     const value = e.target.value;

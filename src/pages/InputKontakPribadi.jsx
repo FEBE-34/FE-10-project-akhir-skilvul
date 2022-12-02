@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 function InputKontakPribadi() {
   const token = localStorage.getItem("token");
   const url =
-    "https://grup-project-be-34-production.up.railway.app/profile/datapribadi/kontakpribadi/";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/profile/datapribadi/kontakpribadi/";
 
   const [data, setData] = useState({
     no_hp: "",

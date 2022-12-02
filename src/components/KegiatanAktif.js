@@ -1,11 +1,12 @@
 import "../assets/css/KegiatanAktif.css";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 
 const KegiatanAktif = () => {
+  const token = localStorage.getItem("token");
   const url =
-    "https://grup-project-be-34-production.up.railway.app/kegiatanpenyandang/aktif";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/kegiatanpenyandang/aktif";
   const [program, setPogram] = useState({ id: "" });
 
   useEffect(() => {
@@ -20,6 +21,10 @@ const KegiatanAktif = () => {
         setPogram(res.data.kegiatan[0]);
       });
   }, []);
+
+  if (!token) {
+    return <Navigate to={"/signin"} />;
+  }
 
   return (
     <>

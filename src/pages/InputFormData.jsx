@@ -5,7 +5,7 @@ import "../assets/css/Profile.css";
 
 function InputFormData() {
   const url =
-    "https://grup-project-be-34-production.up.railway.app/profile/datapribadi/";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/profile/datapribadi/";
 
   const [data, setData] = useState({
     nik: "",

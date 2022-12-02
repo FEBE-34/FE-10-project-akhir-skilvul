@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 function ProfilePage() {
   const url =
-    "https://grup-project-be-34-production.up.railway.app/profile/allpenyandang";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/profile/allpenyandang";
   const [datapenyandang, setDatapenyandang] = useState([]);
   const [kontakpribadi, setKontakpribadi] = useState([]);
   const [tgl, setTgl] = useState([]);

@@ -9,7 +9,7 @@ import CardDetail from "../components/programdetail/CardDetail";
 function ProgramDetailPage() {
   const token = localStorage.getItem("token");
   const param = useParams();
-  const url = `https://grup-project-be-34-production.up.railway.app/programpenyandang/lihat/detail/${param.id}`;
+  const url = `https://febe-34-ayo-skilvul-production.up.railway.app/programpenyandang/lihat/detail/${param.id}`;
   const [redirect, setRedirect] = useState(false);
   function kirim() {
     axios
@@ -23,6 +23,9 @@ function ProgramDetailPage() {
           setRedirect(true);
         }
       });
+  }
+  if (!token) {
+    return <Navigate to={"/signin"} />;
   }
   return (
     <React.Fragment>
