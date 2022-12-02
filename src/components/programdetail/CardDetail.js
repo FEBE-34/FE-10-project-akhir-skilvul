@@ -16,7 +16,6 @@ const CardDetail = () => {
   const [datadetail, setDatadetail] = useState({ nama: "" });
   const [tglmulai, setTglmulai] = useState([]);
   const [tglselesai, setTglselesai] = useState([]);
-  const [tgl, setTgl] = useState([]);
 
   useEffect(() => {
     axios

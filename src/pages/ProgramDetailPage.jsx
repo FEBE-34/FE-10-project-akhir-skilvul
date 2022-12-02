@@ -26,7 +26,7 @@ function ProgramDetailPage() {
   }
   return (
     <React.Fragment>
-      {redirect && <Navigate to="/home" />}
+      {redirect && <Navigate to="/statuspendaftaran" />}
       <Navbar />
       <div style={{ backgroundImage: `url(${image})`, padding: "5vh 0" }}>
         <CardDetail />

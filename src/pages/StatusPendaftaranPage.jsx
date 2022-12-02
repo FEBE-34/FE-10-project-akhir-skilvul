@@ -3,8 +3,13 @@ import StatusPendaftaran from "../components/StatusPendaftaran";
 import image from "../assets/img/bg-status.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Navigate } from "react-router-dom";
 
 function StatusPendaftaranPage() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return <Navigate to={"/signin"} />;
+  }
   return (
     <>
       <Navbar />

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../assets/css/Profile.css";
+import { Navigate } from "react-router-dom";
 
 function InputKontakPribadi() {
-    const url =
+  const token = localStorage.getItem("token");
+  const url =
     "https://grup-project-be-34-production.up.railway.app/profile/datapribadi/kontakpribadi/";
 
   const [data, setData] = useState({
@@ -33,7 +35,7 @@ function InputKontakPribadi() {
         },
         {
           headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       )
@@ -47,6 +49,10 @@ function InputKontakPribadi() {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
+  }
+
+  if (!token) {
+    return <Navigate to={"/signin"} />;
   }
 
   return (

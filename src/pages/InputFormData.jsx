@@ -32,7 +32,7 @@ function InputFormData() {
         },
         {
           headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       )
@@ -50,7 +50,7 @@ function InputFormData() {
 
   const token = localStorage.getItem("token");
   if (!token) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/signin"} />;
   }
   return (
     <div>

@@ -45,7 +45,7 @@ function HomePage() {
       );
     });
   if (!token) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/signin"} />;
   }
   return (
     <div>
