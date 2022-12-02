@@ -6,7 +6,7 @@ import axios from "axios";
 
 const HeroImg = () => {
   const url =
-    "https://grup-project-be-34-production.up.railway.app/homepenyandang/lihat/";
+    "https://febe-34-ayo-skilvul-production.up.railway.app/homepenyandang/lihat/";
   const [kategori, setKategori] = useState();
 
   useEffect(() => {
