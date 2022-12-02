@@ -1,9 +1,6 @@
 import "../assets/css/HeroImg.css";
 import React, { useEffect, useState } from "react";
 import Intro from "../assets/img/gambar1.png";
-import p1 from "../assets/img/gambar1.jpg";
-import p2 from "../assets/img/gambar2.jpg";
-// import p3 from "../assets/img/gambar3.png"
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -31,7 +28,12 @@ const HeroImg = () => {
       return (
         <div className="column" key={index}>
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <img className="img-circle" src={data.gambar} width="200px" />
+            <img
+              className="img-circle"
+              src={data.gambar}
+              width="200px"
+              alt="Gambar"
+            />
             <h3>{data.nama}</h3>
             <p className="text-center">{data.deskripsi}</p>
           </div>

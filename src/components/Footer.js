@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="footer-distributed">
       <div className="footer-left">
-        <img src={logo} className="footer-logo" />
+        <img src={logo} className="footer-logo" alt="Gambar" />
         <p className="footer-company-name">
           Copyright © 2022 <strong>Dis-Help</strong> All rights reserved
         </p>

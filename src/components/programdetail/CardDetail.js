@@ -61,7 +61,11 @@ const CardDetail = () => {
           </div>
           <div className="subContainer-program">
             <div className="containerBanner-program">
-              <img className="banner-program" src={datadetail.gambar} />
+              <img
+                className="banner-program"
+                src={datadetail.gambar}
+                alt="Gambar"
+              />
             </div>
             <h2 style={{ fontSize: "200%", marginBottom: "-2vh" }}>
               {datadetail.nama}
@@ -80,7 +84,11 @@ const CardDetail = () => {
             <hr style={{ borderTop: "3px solid #bbb" }}></hr>
             <h2>Tentang Perusahaan</h2>
             <div style={{ display: "flex", gap: "2vw" }}>
-              <img className="logo-program" src={datadetail.gambar}></img>
+              <img
+                className="logo-program"
+                src={datadetail.gambar}
+                alt="Gambar"
+              ></img>
               <div style={{ flexDirection: "row", marginTop: "-2.5vh" }}>
                 <p style={{ marginBottom: "-2vh" }}>
                   <strong>{datadetail.nama_perusahaan}</strong>
