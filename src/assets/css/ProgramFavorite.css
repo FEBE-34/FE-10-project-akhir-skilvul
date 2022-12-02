@@ -1,0 +1,62 @@
+
+.program-heading{
+    text-align: center;
+    padding: 4rem 0 2rem 0;
+
+    border-top: 2px solid black;
+
+}
+.program-container{
+    max-width: 1140px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    padding-bottom: 5rem;
+}
+.program-card{
+    background: #2492ba;
+    border-radius: 10px;
+    border: 1px solid rgb(130, 130, 130);
+    
+    box-shadow: 3px 5px #057ba2;
+    padding: 1.2rem 1rem;
+}
+.program-card img{
+    width: 100%;
+    border-radius: 9px 9px 0 0;
+    border: 1px solid rgb(130, 130, 130);
+}
+.program-title{
+    padding: 1vh 2vw 1vh 1.5vw;
+    color: #fff;
+    background-color: #F21818;
+    
+    border-top: 1px solid rgb(130, 130, 130);
+    box-shadow: 1px 3px #940606;
+}
+.pro-details{
+    padding: 0.05vh 2vw 0vh 2vw;
+    /* text-align: left; */
+}
+.pro-btns{
+    display: flex;
+    justify-content: center;
+    padding: 3vh 0 2vh 0;
+}
+.pro-btns .btn{
+    background-color: #F21818;
+    color:white;
+    font-weight: bold;
+    padding: 1vh 2vw;
+    border-radius: 5px;
+    border:1px solid black;
+}
+@media screen and (max-width : 740px){
+    .program-container{
+        max-width: 50%;
+        margin: auto;
+        grid-template-columns: 1fr;
+    }
+    
+}

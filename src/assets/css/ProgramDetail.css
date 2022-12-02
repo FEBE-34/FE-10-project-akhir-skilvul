@@ -1,0 +1,53 @@
+.container-program{
+    margin: 5vh 4.5vw;
+
+    border:1px solid black;
+    border-radius: 10px;
+}
+
+.subContainer-program{
+    background-color: white;
+    opacity: 0.95;
+    padding: 0vh 3vw;
+}
+
+.title-program{
+    display:flex;
+    
+    margin: 0;
+    padding: 0vh 3vw;
+    background: #F21818;
+    color:white;
+
+    border-radius: 9px 9px 0 0;
+    border-bottom: 1px solid black
+    
+}
+
+.containerBanner-program{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+.banner-program{
+    padding-top: 1vh;
+    align-items: center;
+    color:#8d8d8d
+}
+
+.logo-program{
+    width: auto;
+    height: 7vh;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.buttonDaftar{
+    background-color: #F21818;
+    color:white;
+    padding: 1.5vh 39vw;
+    border-radius: 10px;
+    border: 1px solid black;
+}
