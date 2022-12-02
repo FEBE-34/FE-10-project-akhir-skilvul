@@ -22,8 +22,11 @@ function Navbar() {
         <Link to={"/program"}>
           <li>Program</li>
         </Link>
-        <Link to={"/kegiatan"}>
-          <li>Kegiatan</li>
+        <Link to={"/kegiatanaktif"}>
+          <li>Kegiatan Aktif</li>
+        </Link>
+        <Link to={"/statuspendaftaran"}>
+          <li>Status Pendaftaran</li>
         </Link>
         <Link to={"/Profile"}>
           <li>Profile</li>

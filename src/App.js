@@ -16,8 +16,8 @@ import InputKontakPribadi from "./pages/InputKontakPribadi";
 import UploadBerkas from "./pages/UploadBerkas";
 import ResetPassword from "./pages/ResetPassword";
 import HomePage from "./pages/HomePage";
-// import KegiatanAktifPage from "./pages/KegiatanAktifPage";
-// import StatusPendaftaranPage from "./pages/StatusPendaftaranPage";
+import KegiatanAktifPage from "./pages/KegiatanAktifPage";
+import StatusPendaftaranPage from "./pages/StatusPendaftaranPage";
 
 function App() {
   return (
@@ -36,8 +36,8 @@ function App() {
           path="/programpenyandang/lihat/:id"
           element={<ProgramDetail />}
         />
-        {/* <Route path="/kegiatanaktif" element={<KegiatanAktifPage />} />
-        <Route path="/statuspendaftaran" element={<StatusPendaftaranPage />} /> */}
+        <Route path="/kegiatanaktif" element={<KegiatanAktifPage />} />
+        <Route path="/statuspendaftaran" element={<StatusPendaftaranPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
       </Routes>

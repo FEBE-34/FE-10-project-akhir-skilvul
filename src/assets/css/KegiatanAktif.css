@@ -1,0 +1,53 @@
+.kegiatan-heading {
+  text-align: center;
+  padding: 3rem 0 2rem 0;
+  color: #fff;
+  size: 32px;
+}
+.kegiatan-container {
+  max-width: 1140px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  padding-bottom: 5rem;
+}
+.kegiatan-card {
+  background: #7fbcd2;
+  padding: 1.2rem 1rem;
+}
+.kegiatan-card img {
+  width: 100%;
+}
+.kegiatan-title {
+  color: #fff;
+  padding: 1rem 0;
+}
+.kegiatan-details {
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.kegiatan-details p {
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  margin-right: 5cm;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-radius: 10%;
+}
+.kegiatan-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.kegiatan-btns .btn {
+  padding: 0.5rem;
+}
+@media screen and (max-width: 740px) {
+  .kegiatan-container {
+    max-width: 50%;
+    margin: auto;
+    grid-template-columns: 2fr;
+  }
+}

@@ -17,7 +17,7 @@ const Program = () => {
         },
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setPogram(res.data.program);
       });
   }, []);

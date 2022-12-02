@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "../../assets/css/ProgramDetail.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -13,7 +13,7 @@ import {
 const CardDetail = () => {
   const param = useParams();
   const url = `https://grup-project-be-34-production.up.railway.app/programpenyandang/lihat/detail/${param.id}`;
-  const [datadetail, setDatadetail] = useState();
+  const [datadetail, setDatadetail] = useState({ nama: "" });
 
   useEffect(() => {
     axios
@@ -23,85 +23,105 @@ const CardDetail = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.kategori);
-        setDatadetail(res.data.kategori);
+        console.log(res.data.kategori[0]);
+        setDatadetail(res.data.kategori[0]);
       });
   }, []);
+
   return (
-    <div className="container-program">
-      <div className="title-program">
-        <FaClipboardList
-          style={{ width: "3vw", height: "auto", paddingRight: "1vw" }}
-        ></FaClipboardList>
-        <h1 style={{ fontSize: "250%" }}>Detail Program</h1>
-      </div>
-      <div className="subContainer-program">
-        <div className="containerBanner-program">
-          <img className="banner-program" src="" />
-        </div>
-        <h2 style={{ fontSize: "200%", marginBottom: "-2vh" }}>{}</h2>
-        <p style={{ marginBottom: "-0.5vh" }}>{}</p>
-        <br></br>
-        <p style={{ color: "#8d8d8d" }}>{}</p>
-        <hr style={{ borderTop: "3px solid #bbb" }}></hr>
-        <h2>Deskripsi Kegiatan</h2>
-        <p>{}</p>
-        <hr style={{ borderTop: "3px solid #bbb" }}></hr>
-        <h2>Kriteria Peserta</h2>
-        <p>{}</p>
-        <hr style={{ borderTop: "3px solid #bbb" }}></hr>
-        <h2>Tentang Perusahaan</h2>
-        <div style={{ display: "flex", gap: "2vw" }}>
-          <img className="logo-program" src=""></img>
-          <div style={{ flexDirection: "row", marginTop: "-2.5vh" }}>
-            <p style={{ marginBottom: "-2vh" }}>
-              <strong>{}</strong>
+    <>
+      {datadetail?.nama && (
+        <div className="container-program">
+          <div className="title-program">
+            <FaClipboardList
+              style={{ width: "3vw", height: "auto", paddingRight: "1vw" }}
+            ></FaClipboardList>
+            <h1 style={{ fontSize: "250%" }}>Detail Program</h1>
+          </div>
+          <div className="subContainer-program">
+            <div className="containerBanner-program">
+              <img className="banner-program" src={datadetail.gambar} />
+            </div>
+            <h2 style={{ fontSize: "200%", marginBottom: "-2vh" }}>
+              {datadetail.nama}
+            </h2>
+            <p style={{ marginBottom: "-0.5vh" }}>
+              {datadetail.DataMitra.nama_mitra}
             </p>
-            <p style={{ marginBottom: "3vh" }}>{}</p>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginBottom: "1.5vh",
-              }}
-            >
-              <FaPeopleCarry></FaPeopleCarry>
-              <p style={{ margin: "-0.5vh 1vw" }}>{}</p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginBottom: "1.5vh",
-              }}
-            >
-              <FaUserAlt></FaUserAlt>
-              <p style={{ margin: "-0.5vh 1vw" }}>{}</p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginBottom: "1.5vh",
-              }}
-            >
-              <FaSearchLocation></FaSearchLocation>
-              <p style={{ margin: "-0.5vh 1vw" }}>{}</p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginBottom: "5vh",
-              }}
-            >
-              <FaGlobe></FaGlobe>
-              <p style={{ margin: "-0.5vh 1vw" }}>{}</p>
+            <br></br>
+            <p style={{ color: "#8d8d8d" }}>
+              {datadetail.tanggal_mulai + datadetail.tanggal_selesai}
+            </p>
+            <hr style={{ borderTop: "3px solid #bbb" }}></hr>
+            <h2>Deskripsi Kegiatan</h2>
+            <p>{datadetail.deskripsi}</p>
+            <hr style={{ borderTop: "3px solid #bbb" }}></hr>
+            <h2>Kriteria Peserta</h2>
+            <p>{datadetail.informasi_tambahan}</p>
+            <hr style={{ borderTop: "3px solid #bbb" }}></hr>
+            <h2>Tentang Perusahaan</h2>
+            <div style={{ display: "flex", gap: "2vw" }}>
+              <img className="logo-program" src={datadetail.gambar}></img>
+              <div style={{ flexDirection: "row", marginTop: "-2.5vh" }}>
+                <p style={{ marginBottom: "-2vh" }}>
+                  <strong>{datadetail.nama_perusahaan}</strong>
+                </p>
+                <p style={{ marginBottom: "3vh" }}>{datadetail.nama_mitra}</p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "1.5vh",
+                  }}
+                >
+                  <FaPeopleCarry></FaPeopleCarry>
+                  <p style={{ margin: "-0.5vh 1vw" }}>
+                    {datadetail.DataMitra.bidang}
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "1.5vh",
+                  }}
+                >
+                  <FaUserAlt></FaUserAlt>
+                  <p style={{ margin: "-0.5vh 1vw" }}>
+                    {datadetail.DataMitra.jumlah_anggota}
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "1.5vh",
+                  }}
+                >
+                  <FaSearchLocation></FaSearchLocation>
+                  <p style={{ margin: "-0.5vh 1vw" }}>
+                    {datadetail.DataMitra.alamat}
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "5vh",
+                  }}
+                >
+                  <FaGlobe></FaGlobe>
+                  <p style={{ margin: "-0.5vh 1vw" }}>
+                    {datadetail.DataMitra.nama_mitra}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

@@ -1,0 +1,45 @@
+.status-heading {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+  color: #fff;
+}
+.status-container {
+  max-width: 1140px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  padding-bottom: 5rem;
+}
+.status-card {
+  background: #7fbcd2;
+  padding: 1.2rem 1rem;
+}
+.status-card img {
+  width: 100%;
+}
+.status-title {
+  color: #fff;
+  padding: 1rem 0;
+}
+.status-details {
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  /* text-align: left; */
+}
+.status-details p {
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  margin-right: 5cm;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-radius: 10%;
+}
+@media screen and (max-width: 740px) {
+  .status-container {
+    max-width: 50%;
+    margin: auto;
+    grid-template-columns: 1fr;
+  }
+}
