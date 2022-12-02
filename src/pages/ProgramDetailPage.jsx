@@ -13,13 +13,18 @@ function ProgramDetailPage() {
   const [redirect, setRedirect] = useState(false);
   function kirim() {
     axios
-      .post(url, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+      .post(
+        url,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((res) => {
         if (res) {
+          console.log(res);
           setRedirect(true);
         }
       });

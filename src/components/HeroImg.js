@@ -26,7 +26,7 @@ const HeroImg = () => {
     kategori &&
     kategori.map((data, index) => {
       return (
-        <div className="column" key={index}>
+        <div className="col" key={index}>
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <img
               className="img-circle"
@@ -61,7 +61,7 @@ const HeroImg = () => {
       </div>
       <div className="container program">
         <h1>Kategori Program</h1>
-        {arr}
+        <div className="row">{arr}</div>
       </div>
     </>
   );
