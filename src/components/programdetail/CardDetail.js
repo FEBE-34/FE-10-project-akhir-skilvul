@@ -13,7 +13,7 @@ import {
 const CardDetail = () => {
   const token = localStorage.getItem("token");
   const param = useParams();
-  const url = `https://grup-project-be-34-production.up.railway.app/programpenyandang/lihat/detail/${param.id}`;
+  const url = `https://febe-34-ayo-skilvul-production.up.railway.app/programpenyandang/lihat/detail/${param.id}`;
   const [datadetail, setDatadetail] = useState({ nama: "" });
   const [tglmulai, setTglmulai] = useState([]);
   const [tglselesai, setTglselesai] = useState([]);
