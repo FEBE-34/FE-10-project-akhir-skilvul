@@ -14,6 +14,9 @@ const CardDetail = () => {
   const param = useParams();
   const url = `https://grup-project-be-34-production.up.railway.app/programpenyandang/lihat/detail/${param.id}`;
   const [datadetail, setDatadetail] = useState({ nama: "" });
+  const [tglmulai, setTglmulai] = useState([]);
+  const [tglselesai, setTglselesai] = useState([]);
+  const [tgl, setTgl] = useState([]);
 
   useEffect(() => {
     axios
@@ -25,6 +28,20 @@ const CardDetail = () => {
       .then((res) => {
         console.log(res.data.kategori[0]);
         setDatadetail(res.data.kategori[0]);
+        const tanggal_mulai = new Date(res.data.kategori[0].tanggal_mulai);
+        const hari_mulai = new Date(tanggal_mulai).getDate();
+        const bulan_mulai = new Date(tanggal_mulai).getMonth();
+        const tahun_mulai = new Date(tanggal_mulai).getFullYear();
+        const formtgl_mulai =
+          hari_mulai + " - " + bulan_mulai + " - " + tahun_mulai;
+        setTglmulai(formtgl_mulai);
+        const tanggal_selesai = new Date(res.data.kategori[0].tanggal_selesai);
+        const hari_selesai = new Date(tanggal_selesai).getDate();
+        const bulan_selesai = new Date(tanggal_selesai).getMonth();
+        const tahun_selesai = new Date(tanggal_selesai).getFullYear();
+        const formtgl_selesai =
+          hari_selesai + " - " + bulan_selesai + " - " + tahun_selesai;
+        setTglselesai(formtgl_selesai);
       });
   }, []);
 
@@ -49,9 +66,7 @@ const CardDetail = () => {
               {datadetail.DataMitra.nama_mitra}
             </p>
             <br></br>
-            <p style={{ color: "#8d8d8d" }}>
-              {datadetail.tanggal_mulai + datadetail.tanggal_selesai}
-            </p>
+            <p style={{ color: "#8d8d8d" }}>{tglmulai + " -- " + tglselesai}</p>
             <hr style={{ borderTop: "3px solid #bbb" }}></hr>
             <h2>Deskripsi Kegiatan</h2>
             <p>{datadetail.deskripsi}</p>

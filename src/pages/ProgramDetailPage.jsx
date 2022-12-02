@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import image from "../assets/img/background.jpg";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import CardDetail from "../components/programdetail/CardDetail";
 
 function ProgramDetailPage() {
@@ -25,6 +27,7 @@ function ProgramDetailPage() {
   return (
     <React.Fragment>
       {redirect && <Navigate to="/home" />}
+      <Navbar />
       <div style={{ backgroundImage: `url(${image})`, padding: "5vh 0" }}>
         <CardDetail />
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -33,6 +36,7 @@ function ProgramDetailPage() {
           </button>
         </div>
       </div>
+      <Footer />
     </React.Fragment>
   );
 }

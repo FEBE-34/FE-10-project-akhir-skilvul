@@ -3,31 +3,32 @@ import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import "../assets/css/Profile.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function ProfilePage() {
   const url =
     "https://grup-project-be-34-production.up.railway.app/profile/allpenyandang";
-  const [data, setData] = useState([]);
+  const [datapenyandang, setDatapenyandang] = useState([]);
+  const [kontakpribadi, setKontakpribadi] = useState([]);
   const [tgl, setTgl] = useState([]);
-  const [gambar, setGambar] = useState([]);
 
   useEffect(() => {
     axios
       .get(url, {
         headers: {
-          "Authorization": `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
       .then((res) => {
-        console.log("Ini datanya", res);
-        // setData(res);
-        // const tanggal = new Date(res.data.data[0].tanggal_lahir);
-        // const hari = new Date(tanggal).getDate();
-        // const bulan = new Date(tanggal).getMonth();
-        // const tahun = new Date(tanggal).getFullYear();
-        // const formattgl = hari + " / " + bulan + " / " + tahun;
-        // setTgl(formattgl);
-        // setGambar(res.data.data[0].UploadBerka);
+        console.log("Ini datanya", res.data.DataPenyandang[0].tanggal_lahir);
+        setDatapenyandang(res.data.DataPenyandang[0]);
+        setKontakpribadi(res.data.KontakPribadi[0]);
+        const tanggal = new Date(res.data.DataPenyandang[0].tanggal_lahir);
+        const hari = new Date(tanggal).getDate();
+        const bulan = new Date(tanggal).getMonth();
+        const tahun = new Date(tanggal).getFullYear();
+        const formattgl = hari + " - " + bulan + " - " + tahun;
+        setTgl(formattgl);
       });
   }, []);
 
@@ -49,14 +50,15 @@ function ProfilePage() {
               <div className="profile-sidebar">
                 <div className="profile-userpic">
                   <img
-                    src={gambar.file_dokter}
+                    src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
                     className="img-responsive"
                     alt=""
                   />
                 </div>
                 <div className="profile-usertitle">
-                  <div className="profile-usertitle-name">{data.nama}</div>
-                  <div className="profile-usertitle-job">Sadewo@gmail.com</div>
+                  <div className="profile-usertitle-name">
+                    {datapenyandang.nama}
+                  </div>
                 </div>
                 <div className="profile-usermenu">
                   <ul className="nav">
@@ -105,7 +107,7 @@ function ProfilePage() {
                       Nama
                     </label>
                     <label htmlFor="" className="form-control">
-                      {data.nama}
+                      {datapenyandang.nama}
                     </label>
                   </div>
                   <div className="col-md-6">
@@ -113,7 +115,7 @@ function ProfilePage() {
                       NIK
                     </label>
                     <label htmlFor="" className="form-control">
-                      {data.nik}
+                      {datapenyandang.nik}
                     </label>
                   </div>
                   <div className="col-md-6">
@@ -121,7 +123,7 @@ function ProfilePage() {
                       Tempat Lahir
                     </label>
                     <label htmlFor="" className="form-control">
-                      {data.tempat_lahir}
+                      {datapenyandang.tempat_lahir}
                     </label>
                   </div>
                   <div className="col-md-6">
@@ -137,7 +139,7 @@ function ProfilePage() {
                       Jenis Kelamin
                     </label>
                     <label htmlFor="" className="form-control">
-                      {data.jenis_kelamin}
+                      {datapenyandang.jenis_kelamin}
                     </label>
                   </div>
                   <div className="col-md-6">
@@ -145,7 +147,7 @@ function ProfilePage() {
                       Agama
                     </label>
                     <label htmlFor="" className="form-control">
-                      {data.agama}
+                      {datapenyandang.agama}
                     </label>
                   </div>
                 </div>
@@ -157,37 +159,49 @@ function ProfilePage() {
                     <label htmlFor="" className="form-label">
                       No HandPhone
                     </label>
-                    <input type="text" className="form-control" disabled />
+                    <label htmlFor="" className="form-control">
+                      {kontakpribadi.no_hp}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Alamat
                     </label>
-                    <input type="text" className="form-control" disabled />
+                    <label htmlFor="" className="form-control">
+                      {kontakpribadi.alamat}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Provinsi
                     </label>
-                    <input type="text" className="form-control" disabled />
+                    <label htmlFor="" className="form-control">
+                      {kontakpribadi.provinsi}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Kota
                     </label>
-                    <input type="text" className="form-control" disabled />
+                    <label htmlFor="" className="form-control">
+                      {kontakpribadi.kota}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Kecamatan
                     </label>
-                    <input type="text" className="form-control" disabled />
+                    <label htmlFor="" className="form-control">
+                      {kontakpribadi.kecamatan}
+                    </label>
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="" className="form-label">
                       Kode Pos
                     </label>
-                    <input type="text" className="form-control" disabled />
+                    <label htmlFor="" className="form-control">
+                      {kontakpribadi.kode_pos}
+                    </label>
                   </div>
                 </div>
               </div>
@@ -195,6 +209,7 @@ function ProfilePage() {
           </div>
         </div>
       </form>
+      <Footer />
     </div>
   );
 }
