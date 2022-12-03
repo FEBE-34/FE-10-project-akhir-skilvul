@@ -6,6 +6,7 @@ import "../assets/css/Profile.css";
 function InputFormData() {
   const url =
     "https://febe-34-ayo-skilvul-production.up.railway.app/profile/datapribadi/";
+  const [redirect, setRedirect] = useState(false);
 
   const [data, setData] = useState({
     nik: "",
@@ -39,6 +40,7 @@ function InputFormData() {
       .then((res) => {
         // console.log("Data Berhasil disimpan");
         // console.log(res.data);
+        setRedirect(true);
       });
   }
 
@@ -54,6 +56,7 @@ function InputFormData() {
   }
   return (
     <div>
+      {redirect && <Navigate to="/kontak-pribadi" />}
       <form action="" onSubmit={submit}>
         <div className="col-md-12">
           <div className="profile-content-formdata">

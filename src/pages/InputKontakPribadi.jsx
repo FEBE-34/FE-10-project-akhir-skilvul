@@ -7,6 +7,7 @@ function InputKontakPribadi() {
   const token = localStorage.getItem("token");
   const url =
     "https://febe-34-ayo-skilvul-production.up.railway.app/profile/datapribadi/kontakpribadi/";
+  const [redirect, setRedirect] = useState(false);
 
   const [data, setData] = useState({
     no_hp: "",
@@ -42,6 +43,7 @@ function InputKontakPribadi() {
       .then((res) => {
         // console.log("Data Berhasil disimpan");
         // console.log(res.data);
+        setRedirect(true);
       });
   }
 
@@ -57,6 +59,7 @@ function InputKontakPribadi() {
 
   return (
     <div>
+      {redirect && <Navigate to="/profile" />}
       <form action="" onSubmit={submit}>
         <div className="col-md-12">
           <div className="profile-content-formdata">
