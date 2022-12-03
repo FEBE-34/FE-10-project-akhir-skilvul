@@ -25,7 +25,7 @@ function ProfilePage() {
         setKontakpribadi(res.data.KontakPribadi[0]);
         const tanggal = new Date(res.data.DataPenyandang[0].tanggal_lahir);
         const hari = new Date(tanggal).getDate();
-        const bulan = new Date(tanggal).getMonth();
+        const bulan = new Date(tanggal).getMonth() + 1;
         const tahun = new Date(tanggal).getFullYear();
         const formattgl = hari + " - " + bulan + " - " + tahun;
         setTgl(formattgl);
