@@ -59,7 +59,7 @@ function InputKontakPribadi() {
 
   return (
     <div>
-      {redirect && <Navigate to="/profile" />}
+      {redirect && <Navigate to="/home" />}
       <form action="" onSubmit={submit}>
         <div className="col-md-12">
           <div className="profile-content-formdata">
